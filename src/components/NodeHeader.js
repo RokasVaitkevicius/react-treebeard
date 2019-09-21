@@ -25,12 +25,12 @@ class NodeHeader extends Component {
 
     render() {
         const {
-            animations, decorators, node, onClick, style, onSelect, customStyles
+            animations, decorators, node, onClick, style, onSelect, customStyles, activeName
         } = this.props;
-        const {active, children} = node;
+        const {active, children, name} = node;
         const terminal = !children;
         let styles;
-        if (active) {
+        if (active || name === activeName) {
             styles = Object.assign(style, {container: {...style.link, ...style.activeLink}});
         } else {
             styles = style;
